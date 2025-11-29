@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+void mergeSorted(const int* a, int n, const int* b, int m, int* out) {
+    const int* endA = a + n;
+    const int* endB = b + m;
+
+    while (a < endA && b < endB) {
+        if (*a < *b) {
+            *out = *a;
+            a++;
+        } else {
+            *out = *b;
+            b++;
+        }
+        out++;
+    }
+
+    while (a < endA) {
+        *out = *a;
+        a++;
+        out++;
+    }
+
+    while (b < endB) {
+        *out = *b;
+        b++;
+        out++;
+    }
+}
+
+int main() {
+    int arr1[] = {1, 3, 5};
+    int arr2[] = {2, 4, 6};
+    int merged[6];
+
+    mergeSorted(arr1, 3, arr2, 3, merged);
+
+    for (int* p = merged; p < merged + 6; p++)
+        cout << *p << " ";
+
+    return 0;
+}

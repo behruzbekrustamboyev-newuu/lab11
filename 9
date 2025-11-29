@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+void avg(const double* arr, int size, double* result) {
+    double sum = 0;
+    const double* end = arr + size;
+    while (arr < end) {
+        sum += *arr;
+        arr++;
+    }
+    *result = sum / size;
+}
+
+int main() {
+    double arr[] = {2.5, 3.5, 4.0, 5.0};
+    double result;
+
+    avg(arr, 4, &result);
+
+    cout << result;
+    return 0;
+}

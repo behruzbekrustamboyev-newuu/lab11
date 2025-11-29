@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int sum2D(int** m, int r, int c) {
+    int sum = 0;
+    for(int** row = m; row < m + r; row++) {
+        for(int* col = *row; col < *row + c; col++) {
+            sum += *col;
+        }
+    }
+    return sum;
+}
+
+int main() {
+    int r = 2, c = 3;
+    int** mat = new int*[r];
+
+    for(int i = 0; i < r; i++) {
+        mat

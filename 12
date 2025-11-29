@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+bool identical(const int* a, int** bptr, int size) {
+    int* b = *bptr;
+    const int* end = a + size;
+
+    while (a < end) {
+        if (*a != *b)
+            return false;
+        a++;
+        b++;
+    }
+    return true;
+}
+
+int main() {
+    int arr1[] = {1, 2, 3, 4};
+    int arr2[] = {1, 2, 3, 4};
+    int* ptr2 = arr2;
+
+    if (identical(arr1, &ptr2, 4))
+        cout << "Identical";
+    else
+        cout << "Not identical";
+
+    return 0;
+}

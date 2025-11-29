@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+void printIfValid(int* p) {
+    if (p == nullptr)
+        cout << "null";
+    else
+        cout << *p;
+}
+
+int main() {
+    string input;
+    cin >> input;
+
+    int* p;
+
+    if (input == "n")
+        p = nullptr;
+    else {
+        int x = stoi(input);
+        p = &x;
+    }
+
+    printIfValid(p);
+    return 0;
+}

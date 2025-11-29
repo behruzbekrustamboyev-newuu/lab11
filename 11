@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int removeValue(int* arr, int size, int val) {
+    int* writePtr = arr;
+    int* end = arr + size;
+
+    for(int* readPtr = arr; readPtr < end; readPtr++) {
+        if (*readPtr != val) {
+            *writePtr = *readPtr;
+            writePtr++;
+        }
+    }
+
+    return writePtr - arr; // new size
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 2, 4, 2, 5};
+    int size = 7;
+
+    int newSize = removeValue(arr, size, 2);
+
+    for(int* p = arr; p < arr + newSize; p++)
+        cout << *p << " ";
+
+    return 0;
+}

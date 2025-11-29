@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int* findMax(int* arr, int size) {
+    int* maxPtr = arr;
+    int* end = arr + size;
+    while (arr < end) {
+        if (*arr > *maxPtr)
+            maxPtr = arr;
+        arr++;
+    }
+    return maxPtr;
+}
+
+int main() {
+    int arr[] = {3, 7, 2, 9, 5};
+    int* maxElement = findMax(arr, 5);
+    cout << *maxElement; // p*
